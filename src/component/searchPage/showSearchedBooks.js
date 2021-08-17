@@ -1,6 +1,5 @@
 import React from 'react'
 import BookshelfBooks from '../main-page/bookshelfBooks';
-// import BookShelfChanger from '../main-page/bookshelfChanger';
 
 const ShowSearchedBooks = (props) => {
 
