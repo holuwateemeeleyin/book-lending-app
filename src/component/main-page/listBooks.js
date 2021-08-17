@@ -1,20 +1,17 @@
-import React, { Component } from 'react'
+import React from 'react'
 import BookShelves from './bookshelves';
 import { Link } from 'react-router-dom'
 
-class ListBooks extends Component {
-    render() {
-        // pass data from parent file as props
-        const { books, shelves, onChangeBook } = this.props
-        console.log(shelves, books);
-        return (
-            <div className="list-books">
+const ListBooks =(props)=> {
+    const { books, shelves, onChangeBook } = props
+    return (
+        <div className="list-books">
                 <div className="list-books-title">
                     <h1>MyReads</h1>
                 </div>
                 <div className="list-books-content">
                     <div>
-                        {/* displaying bookshelves categories in shelves */}
+                        {/* displaying bookshelves categories in shelves using shelves in props */}
                         {shelves.map((shelf) => (
                             <BookShelves
                                 key={shelf.id} 
@@ -31,8 +28,7 @@ class ListBooks extends Component {
                     </Link>
                 </div>
             </div>
-        )
-    }
+    )
 }
 
 export default ListBooks;

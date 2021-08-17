@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { Component } from 'react'
 import * as BooksAPI from './BooksAPI'
 import './App.css'
 import ListBooks from './component/main-page/listBooks'
 import { Route } from 'react-router-dom'
-// import data from './data/data'
+// import data from './data/data' //importing stored books data 
 import SearchBooks from './component/searchPage/searchBooks'
-class BooksApp extends React.Component {
+class BooksApp extends Component {
   state = {
     // books : data // I first saved the data for books on data file before using BooksAPI
     books :[]
@@ -16,7 +16,7 @@ class BooksApp extends React.Component {
     BooksAPI.getAll()
       .then((books)=>{
         this.setState(()=> ({
-          books
+          books //setting the state with books fetched 
         }))
       })   
   }
@@ -52,6 +52,7 @@ class BooksApp extends React.Component {
             onChangeBook = {this.onChangeBookShelf}
           />
         )} />
+
         <Route exact path='/search' render= {()=> (
           <SearchBooks
             books={books}
@@ -64,20 +65,3 @@ class BooksApp extends React.Component {
 }
 
 export default BooksApp
-
-
-// componentDidMount(){
-  //   BooksAPI.getAll()
-  //     .then ((books)=> {
-  //       this.setState(()=> ({
-  //         books
-  //       }))
-  //     })
-  //   }
-   /**
-     * TODO: Instead of using this state variable to keep track of which page
-     * we're on, use the URL in the browser's address bar. This will ensure that
-     * users can use the browser's back and forward buttons to navigate between
-     * pages, as well as provide a good URL they can bookmark and share.
-     */
-    // showSearchPage: false
