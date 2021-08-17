@@ -9,9 +9,9 @@ const BookshelfBooks = ({ book, shelf, onChangeBook }) => (
                     style={{
                         width: 128,
                         height: 193,
-                        backgroundImage: `url(${
-                            book.imageLinks ? book.imageLinks.smallThumbnail
-                            : 'icons/book-placeholder.svg'
+                        backgroundImage: `url(${ 
+                            book.imageLinks ? book.imageLinks.smallThumbnail    //if books has image links, display small thumbnail
+                            : 'no image'    // Fixing cannot read small thumbnail of undefined
                         })`
                     }}>
                 </div>
