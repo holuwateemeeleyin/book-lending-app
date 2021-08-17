@@ -21,7 +21,7 @@ class SearchBooks extends Component {
 
     // funtions for search book from the API given
     searchingBooks =(query)=> {
-        // if a string is entered, search for it 
+        // if a string is entered, search for it
         if (query.length > 0){
             BooksAPI.search(query)
                 .then(books=> {
@@ -32,12 +32,12 @@ class SearchBooks extends Component {
                     }
                 })
         } else {
-            this.setState ({searchBooks:[]}) //Return empty array if nothing is searched
+            this.setState ({searchBooks:[]}) //Return empty array if nothing is searched on the search input
         }
     }
     resetPage = ()=>{
         this.setState({
-            searchBooks:[]
+            searchBooks:[]          // reset page when back button is clicked
         })
     }
     render() {
@@ -77,11 +77,6 @@ class SearchBooks extends Component {
                             books={ books }
                             onChangeBook={onChangeBook}
                         />
-                    {/* <ol className="books-grid"> */}
-                        {/* {showBooks} */}
-                        {/* {this.searchBooks} */}
-                        
-                    {/* </ol> */}
                 </div>
             </div>
         )
